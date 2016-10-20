@@ -27,7 +27,7 @@ public class MainActivity extends Activity {
             public void onClick(View v) {
 
                 //criar alert dialog
-                dialog = new AlertDialog.Builder(getApplicationContext());
+                dialog = new AlertDialog.Builder(MainActivity.this);
 
                 //configurar o título
                 dialog.setTitle("Título da dialog");
@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
                         new DialogInterface.OnClickListener() { //passado a msg 'não' e uma chamada de evento no clique do 'não'.
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getApplicationContext(),"Pressionado botão não", Toast.LENGTH_SHORT).show();;
+                                Toast.makeText(MainActivity.this,"Pressionado botão não", Toast.LENGTH_SHORT).show();;
                             }
                         });
                 //botão positivo
@@ -48,9 +48,10 @@ public class MainActivity extends Activity {
                         new DialogInterface.OnClickListener() {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
-                                Toast.makeText(getApplicationContext(), "Pressionado botão sim", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(MainActivity.this, "Pressionado botão sim", Toast.LENGTH_SHORT).show();
                             }
                         });
+
                 dialog.setCancelable(false);    //Quando pressionado fora da caixa de diálogo, não fecha a janela de 'dialogo'.
                 dialog.setIcon(android.R.drawable.ic_delete);   //ícone mostrado no título.
 
